@@ -1,0 +1,61 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Restore missing data and Featured Tools section",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Ensure FeaturedSection is rendered in CatalogPage.tsx between HeroBanner and SearchInput, and displays featured entries correctly without returning null when data exists",
+      "acceptanceCriteria": [
+        "The Featured Tools section is visible on the page when featured entries exist",
+        "Featured tool cards are rendered within the FeaturedSection grid",
+        "The FeaturedSection is positioned between HeroBanner and SearchInput in the layout",
+        "The tool grid below search/filter displays all catalog entries"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "modify",
+          "description": "Review and fix the rendering logic for FeaturedSection to ensure it appears between HeroBanner and SearchInput. Verify that the featuredEntries query result is properly passed to the FeaturedSection component as the entries prop, and that the section is not conditionally hidden when featured entries exist. Ensure the component layout order is: HeroBanner → FeaturedSection → SearchInput → FilterBar → ToolGrid."
+        },
+        {
+          "path": "frontend/src/components/FeaturedSection.tsx",
+          "operation": "modify",
+          "description": "Review the component's render logic to ensure it does not return null when the entries array contains items. Verify that the entries prop is correctly typed and mapped to ToolCard components. Confirm that the isAdmin prop is properly forwarded to each ToolCard for delete functionality."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Ensure useQueries hooks correctly wire to the backend actor and propagate query results to CatalogPage.tsx and child components without returning undefined or empty arrays when backend has data",
+      "acceptanceCriteria": [
+        "No query returns undefined or empty arrays when the backend has data",
+        "FeaturedSection receives a non-empty entries prop when featured tools exist in the backend",
+        "FilterBar displays correct category counts derived from live backend data",
+        "ToolGrid renders tool cards from the fetched entries list"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Review the useEntries, useFeaturedEntries, and useCategories hooks to ensure they are correctly calling the backend actor methods (getAllEntries, getFeaturedEntries, getCategories). Verify that the enabled conditions are correct and that queries are not blocked when the actor is available. Check for any default empty array returns that might mask backend data. Ensure proper error handling and retry logic."
+        },
+        {
+          "path": "frontend/src/pages/CatalogPage.tsx",
+          "operation": "modify",
+          "description": "Review how query results from useEntries, useFeaturedEntries, and useCategories are consumed. Ensure that loading states, error states, and data states are handled correctly. Verify that the entries data is properly filtered by search term and selected category before being passed to ToolGrid. Confirm that featuredEntries data is passed directly to FeaturedSection without additional filtering that might empty the array. Check that category counts in FilterBar are derived from the live entries data."
+        },
+        {
+          "path": "frontend/src/components/ToolGrid.tsx",
+          "operation": "modify",
+          "description": "Review the component to ensure it correctly receives and renders the entries prop. Verify that the skeleton loading state and empty state messages are conditionally rendered based on the isLoading flag and entries length. Confirm that each entry is mapped to a ToolCard component with the correct props including isAdmin."
+        },
+        {
+          "path": "frontend/src/components/FilterBar.tsx",
+          "operation": "modify",
+          "description": "Review how category counts are calculated from the entries data. Ensure that the count badges accurately reflect the number of entries in each category from the live backend data, not hardcoded or stale values. Verify that the 'All' count represents the total number of entries."
+        }
+      ]
+    }
+  ]
+}

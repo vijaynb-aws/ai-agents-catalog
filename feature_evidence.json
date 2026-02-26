@@ -1,0 +1,46 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-ensure-the-featuredsection-component-is-rendered-in-catalogpage-tsx-and-correctly-receives-and-displays-featured-entries-the-featuredsection-must-be-placed-between-herobanner-and-searchinput-and-must-not-return-null-when-featured-entries-exist",
+      "featureTitle": "Ensure the FeaturedSection component is rendered in CatalogPage.tsx and correctly receives and displays featured entries. The FeaturedSection must be placed between HeroBanner and SearchInput, and must not return null when featured entries exist.",
+      "files": [
+        "frontend/src/pages/CatalogPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-usequeries-hooks-for-entries-featured-entries-and-categories-are-correctly-wired-to-the-backend-actor-and-that-query-results-propagate-properly-to-catalogpage-tsx-and-its-child-components-featuredsection-filterbar-toolgrid",
+      "featureTitle": "Ensure the useQueries hooks for entries, featured entries, and categories are correctly wired to the backend actor and that query results propagate properly to CatalogPage.tsx and its child components (FeaturedSection, FilterBar, ToolGrid).",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/CatalogPage.tsx"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "authorization@4.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

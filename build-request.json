@@ -1,0 +1,74 @@
+{
+  "kind": "build_request",
+  "title": "Restore missing data and Featured Tools section",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Ensure the backend returns all catalog entries and categories correctly. Verify that the actor's query methods for entries (all, featured, by category) and categories are functioning and returning populated data, not empty results.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Data and Featured Tools missing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calling the entries query returns the full list of AI tool entries",
+        "Calling the categories query returns all available categories",
+        "Calling the featured entries query returns entries marked as featured"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Ensure the FeaturedSection component is rendered in CatalogPage.tsx and correctly receives and displays featured entries. The FeaturedSection must be placed between HeroBanner and SearchInput, and must not return null when featured entries exist.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Data and Featured Tools missing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Featured Tools section is visible on the page when featured entries exist",
+        "Featured tool cards are rendered within the FeaturedSection grid",
+        "The FeaturedSection is positioned between HeroBanner and SearchInput in the layout",
+        "The tool grid below search/filter displays all catalog entries"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Ensure the useQueries hooks for entries, featured entries, and categories are correctly wired to the backend actor and that query results propagate properly to CatalogPage.tsx and its child components (FeaturedSection, FilterBar, ToolGrid).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Data and Featured Tools missing"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No query returns undefined or empty arrays when the backend has data",
+        "FeaturedSection receives a non-empty entries prop when featured tools exist in the backend",
+        "FilterBar displays correct category counts derived from live backend data",
+        "ToolGrid renders tool cards from the fetched entries list"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Adding new features or changing visual design",
+    "Modifying the layout order beyond restoring the existing HeroBanner → FeaturedSection → SearchInput → FilterBar → ToolGrid structure"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

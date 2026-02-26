@@ -1,0 +1,62 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-26T09:54:53.027Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Ensure the backend returns all catalog entries and categories correctly. Verify that the actor's query methods for entries (all, featured, by category) and categories are functioning and returning populated data, not empty results.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Ensure the FeaturedSection component is rendered in CatalogPage.tsx and correctly receives and displays featured entries. The FeaturedSection must be placed between HeroBanner and SearchInput, and must not return null when featured entries exist.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CatalogPage.tsx",
+          "frontend/src/components/FeaturedSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CatalogPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Ensure the useQueries hooks for entries, featured entries, and categories are correctly wired to the backend actor and that query results propagate properly to CatalogPage.tsx and its child components (FeaturedSection, FilterBar, ToolGrid).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/CatalogPage.tsx",
+          "frontend/src/components/ToolGrid.tsx",
+          "frontend/src/components/FilterBar.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/CatalogPage.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/CatalogPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [
+    "Data and Featured Tools categories are missing from the site"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-ensure-the-featuredsection-component-is-rendered-in-catalogpage-tsx-and-correctly-receives-and-displays-featured-entries-the-featuredsection-must-be-placed-between-herobanner-and-searchinput-and-must-not-return-null-when-featured-entries-exist",
+      "title": "Ensure the FeaturedSection component is rendered in CatalogPage.tsx and correctly receives and displays featured entries. The FeaturedSection must be placed between HeroBanner and SearchInput, and must not return null when featured entries exist.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-usequeries-hooks-for-entries-featured-entries-and-categories-are-correctly-wired-to-the-backend-actor-and-that-query-results-propagate-properly-to-catalogpage-tsx-and-its-child-components-featuredsection-filterbar-toolgrid",
+      "title": "Ensure the useQueries hooks for entries, featured entries, and categories are correctly wired to the backend actor and that query results propagate properly to CatalogPage.tsx and its child components (FeaturedSection, FilterBar, ToolGrid).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Ensure the backend returns all catalog entries and categories correctly. Verify that the actor's query methods for entries (all, featured, by category) and categories are functioning and returning populated data, not empty results.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Restore missing data and Featured Tools section",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
